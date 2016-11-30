@@ -1,0 +1,14 @@
+<h5><%= @user.name %></h5>
+
+<ul>
+  <li>email: <%= @user.email %></li>
+  <li>provider: <%= @user.provider %></li>
+</ul>
+
+<h4>Topics:</h4>
+
+<ul class="collection">
+  <%= for topic <- @user.topics do %>
+    <%= render Discuss.TopicView, "_topic.html", topic: topic, conn: @conn %>
+  <% end %>
+</ul>
